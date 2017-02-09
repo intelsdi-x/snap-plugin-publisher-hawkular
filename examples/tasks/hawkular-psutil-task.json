@@ -1,0 +1,62 @@
+{
+    "version": 1,
+    "schedule": {
+        "type": "simple",
+        "interval": "1s"
+    },
+    "workflow": {
+        "collect": {
+            "metrics": {
+                "/intel/psutil/load/load1":{},
+                "/intel/psutil/load/load15":{},
+                "/intel/psutil/load/load5":{},
+                "/intel/psutil/net/*/bytes_recv":{},
+                "/intel/psutil/net/*/bytes_sent":{},
+                "/intel/psutil/net/*/dropin":{},
+                "/intel/psutil/net/*/dropout":{},
+                "/intel/psutil/net/*/errin":{},
+                "/intel/psutil/net/*/errout":{},
+                "/intel/psutil/net/*/packets_recv":{},
+                "/intel/psutil/net/*/packets_sent":{},
+                "/intel/psutil/net/all/bytes_recv":{},
+                "/intel/psutil/net/all/bytes_sent":{},
+                "/intel/psutil/net/all/dropin":{},
+                "/intel/psutil/net/all/dropout":{},
+                "/intel/psutil/net/all/errin":{},
+                "/intel/psutil/net/all/errout":{},
+                "/intel/psutil/net/all/packets_recv":{},
+                "/intel/psutil/net/all/packets_sent":{},
+                "/intel/psutil/vm/active":{},
+                "/intel/psutil/vm/available":{},
+                "/intel/psutil/vm/buffers":{},
+                "/intel/psutil/vm/cached":{},
+                "/intel/psutil/vm/free":{},
+                "/intel/psutil/vm/inactive":{},
+                "/intel/psutil/vm/total":{},
+                "/intel/psutil/vm/used":{},
+                "/intel/psutil/vm/used_percent":{},
+                "/intel/psutil/vm/wired":{}
+            },
+            "config": {},
+            "process": null,
+            "publish": [
+                {
+                    "plugin_name": "file",                            
+                    "config": {
+                        "file": "/tmp/snap_published_hawkular.log"
+                    }
+                },
+                {
+                    "plugin_name": "hawkular",                            
+                    "config": {
+                        "server": "${SNAP_HAWKULAR_HOST}",
+                        "port": 8080,
+                        "user": "jdoe",
+                        "password": "password",
+                        "tenant": "snap"
+                    }
+                }
+            ]             
+        }
+    }
+}
