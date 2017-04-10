@@ -41,11 +41,11 @@ You can get the pre-built binaries for your OS and architecture at snap's [Githu
 #### Install Cassandra
 * install Cassandra
 ```
- docker run -d --name snapcass -e CASSANDRA_START_RPC=true cassandra:3.7
+ docker run -d --name snapcass -e CASSANDRA_START_RPC=true cassandra:3.0.9
 ```
 * install Hawkular services
 ```
- docker run -d -e TEST_MODE=true -e DB_TIMEOUT=600 -e CASSANDRA_NODES=snapcass -p 8080:8080 -p 8443:8443 --link snapcass:snapcass hawkularqe/hawkular-services
+ docker run -d --name snaphawk --link=snapcass -e CASSANDRA_NODES=snapcass -p 8080:8080 -e ADMIN_TOKEN=topsecret hawkular/hawkular-services:latest
 ```
 
 ## Documentation
