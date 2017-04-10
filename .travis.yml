@@ -2,7 +2,6 @@
 sudo: true
 language: go
 go:
-- 1.6.3
 - 1.7.3
 services:
   - docker
@@ -16,7 +15,7 @@ env:
   - TEST_TYPE=build
 matrix:
   exclude:
-  - go: 1.6.3
+  - go: 1.6.4
     env: TEST_TYPE=build
 before_install:
 - "[[ -d $SNAP_PLUGIN_SOURCE ]] || mkdir -p $ORG_PATH && ln -s $TRAVIS_BUILD_DIR $SNAP_PLUGIN_SOURCE"

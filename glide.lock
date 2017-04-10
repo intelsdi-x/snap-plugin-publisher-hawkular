@@ -12,7 +12,6 @@ imports:
   subpackages:
   - metrics
 - name: github.com/intelsdi-x/snap-plugin-lib-go
-  version: ed851e36ef19aa204063ac1e30551ce1e50fa816
   subpackages:
   - v1/plugin
   - v1/plugin/rpc
