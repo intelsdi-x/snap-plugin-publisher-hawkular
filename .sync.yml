@@ -8,8 +8,6 @@
   maintainer: core
 .travis.yml:
   sudo: true
-  go:
-    - 1.7.x
   services:
     - docker
   env:
